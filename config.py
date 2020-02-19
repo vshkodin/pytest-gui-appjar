@@ -1,2 +1,2 @@
 GUI=True
-Reports=True
+Allure_GUI=False

@@ -1,9 +1,4 @@
-GUI for Pytest based on appJar with allure reports integration.
-
-# In order to run reports command, allure report needs to be installed and added to the path.
-https://docs.qameta.io/allure/
-
-
+GUI for Pytest based on appJar.
 
 # How to run?
 $ python start.py

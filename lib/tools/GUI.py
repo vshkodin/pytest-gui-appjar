@@ -2,14 +2,13 @@ from lib.tools.running import RUN
 from lib.tools.directoryCleaning import reports_cleaning
 from lib.tools.testParser import Parser
 from appJar import gui
-from config import GUI
+from config import GUI,Allure_GUI
 import subprocess, os, re, sys
 
-counter=0
 
 def run_GUI():
-    global app,counter
-    app = gui("Pytest GUI", "800x600")
+    global app
+    app = gui("Pytest GUI", "900x600")
     app.setBg("white")
     app.setFont(12)
     app.startScrollPane("PANE")
@@ -17,7 +16,8 @@ def run_GUI():
     for k, i in enumerate (list_tests.collect_tests()):
         app.addNamedCheckBox(i, i)
     app.stopScrollPane()
-    app.addButtons(["Run tests", "Run reports", "Clear reports directory", "EXIT"], press)
+    if Allure_GUI: app.addButtons(["Run tests", "Run reports", "Clear reports directory", "EXIT"], press)
+    else: app.addButtons(["Run tests", "EXIT"], press)
     app.startTabbedFrame("TabbedFrame")
     app.startTab("OUTPUT")
     app.addLabel("test_results", "")
@@ -26,7 +26,7 @@ def run_GUI():
     app.go()
 
 def press(button):
-    global app, counter
+    global app
     if button == "EXIT":
         app.stop()
 
@@ -43,7 +43,8 @@ def press(button):
         for i in (l):
             if l[i] == True:
                 markedListOfTests= markedListOfTests +" "+str(i)
-        os.system('pytest'+markedListOfTests+" > out.txt")
+        if Allure_GUI: os.system('pytest --alluredir=reports '+markedListOfTests+" > out.txt")
+        else: os.system('pytest '+markedListOfTests+" > out.txt")
         with open("out.txt") as file:
             for string in file:
                 pass
