@@ -1,4 +1,4 @@
-import os
+import os,time
 
 
 class Parser:
@@ -7,7 +7,8 @@ class Parser:
         self.list_out=[]
 
     def collect_tests(self):
-        os.system('pytest --collect-only -qq >list_tests.txt')
+        os.system('python -m pytest --collect-only -qq >list_tests.txt')
+        time.sleep(2)
         with open("list_tests.txt") as file:
             for string in file:
                 if 'no tests ran' not in string:
