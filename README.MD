@@ -6,7 +6,8 @@ GUI for Pytest based on appJar.
 $ python start.py
 
 
-# All tests exist in verification purposes only be Free to delete whole list from directory.
+### All tests exist in verification purposes only.
+### Be Free to delete whole list from directory.
 
 "test_example_func_only.py::test_junk
 test_example_func_only.py::test_boom
