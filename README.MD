@@ -1,5 +1,7 @@
 GUI for Pytest based on appJar.
 
+#![](demo-gif.gif)
+
 # How to run?
 $ python start.py
 
@@ -30,3 +32,5 @@ tests/test_FOO.py::TestClassSession::test_inclass_zz_bb[0]
 tests/test_FOO.py::TestClassSession::test_inclass_zz_bb[1]
 tests/test_junk.py::test_junk
 tests/test_junk.py::test_jun_sec"
+
+add saved tests.
