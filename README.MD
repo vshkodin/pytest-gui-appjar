@@ -1,5 +1,8 @@
 GUI for Pytest based on appJar.
 
+### install requirements
+$ pip install -r requirements.txt
+
 #![](demo-gif.gif)
 
 # How to run?
