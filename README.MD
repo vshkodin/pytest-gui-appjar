@@ -1,5 +1,7 @@
 GUI for Pytest based on appJar.
 
+* Please give a "star" if it helped you.
+
 ### install requirements
 $ pip install -r requirements.txt
 
