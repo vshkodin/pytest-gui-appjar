@@ -9,7 +9,7 @@ cd pytest-gui
 ```
 $ pip install -r requirements.txt 
 ```
-[allure](https://docs.qameta.io/allure/)
+* [install Allure](https://docs.qameta.io/allure/)
 
 #![](demo-gif.gif)
 
