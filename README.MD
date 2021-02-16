@@ -1,5 +1,4 @@
 ## GUI for Pytest based on appJar.
-
 #### Clone project:
 ```
 git clone https://github.com/vsshk/pytest-gui.git
@@ -10,18 +9,14 @@ cd pytest-gui
 $ pip install -r requirements.txt 
 ```
 * [install Allure](https://docs.qameta.io/allure/)
-
 #![](demo-gif.gif)
-
 # How to run?
 ```
 $ python start.py
 ```
 * Please give a "star" if it helped you.
-
 ### All tests exist in verification purposes only.
 ### Be Free to delete whole list from directory.
-
 test_example_func_only.py::test_junk
 test_example_func_only.py::test_boom
 test_example_module_with_class.py::TestClass::test_inclass_one
