@@ -5,7 +5,7 @@
 git clone https://github.com/vsshk/pytest-gui.git
 cd pytest-gui
 ```
-### install requirements and allure
+### install requirements and Allure
 ```
 $ pip install -r requirements.txt 
 ```
