@@ -19,7 +19,7 @@ $ python start.py
 ### All tests exist in verification purposes only.
 ### Be Free to delete whole list from directory.
 
-"test_example_func_only.py::test_junk
+test_example_func_only.py::test_junk
 test_example_func_only.py::test_boom
 test_example_module_with_class.py::TestClass::test_inclass_one
 test_example_module_with_class.py::TestClass::test_inclass_two
