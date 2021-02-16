@@ -35,11 +35,6 @@ tests/coverage/flash/KO/test_knok_zooma.py::test_buy
 tests/coverage/flash/test_flash.py::test_abs
 tests/coverage/test_appium.py::test_one
 tests/coverage/test_booma.py::test_one
-tests/coverage/test_zangetcy.py::TestClass::test_inclass
-tests/test_FOO.py::TestClass::test_inclass[0]
-tests/test_FOO.py::TestClass::test_inclass[1]
-tests/test_FOO.py::TestClassSession::test_inclass_zz
-tests/test_FOO.py::TestClassSession::test_inclass_zz_bb[0]
-tests/test_FOO.py::TestClassSession::test_inclass_zz_bb[1]
+tests/coverage/test_zangetcy.py::TestClass::test_inclas
 tests/test_junk.py::test_junk
 tests/test_junk.py::test_jun_sec"

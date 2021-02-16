@@ -1,16 +1,18 @@
 from lib.gui.running import RUN
-from lib.gui.directoryCleaning import reports_cleaning
 from lib.gui.testParser import Parser
 from appJar import gui
 from config import GUI,Allure_GUI
 import subprocess, os, re, sys
-
-
+import logging
+from datetime import datetime
+logging.basicConfig(filename='myapp.log', level=logging.INFO)
+now = datetime.now()
 
 def run_GUI():
     global app
 
-    # create a GUI variable called app
+    # create a GUI variable called
+    logging.info(f' app starts att: {now}')
     app = gui("Pytest GUI", "900x600")
     app.setBg("white")
     app.setFont(12)
@@ -33,7 +35,7 @@ def run_GUI():
 
     # MIDDLE FRAME
     app.startFrame("MIDDLE", row=2)
-    app.addButtons(["Run All","Run selected", "Settings","See Report", "EXIT"], press)
+    app.addButtons(["Run All", "Run selected", "See Report", "Settings", "EXIT"], press)
     app.stopFrame()
 
 
@@ -46,9 +48,10 @@ def run_GUI():
 
 
     # settings pop-up
-    app.startSubWindow("settings",title='Settings', modal=True)
+    app.startSubWindow("Settings",title='Settings', modal=True)
     app.addLabel("settingsLable", "")
     app.setSize(400, 400)
+
     app.stopSubWindow()
 
 
@@ -61,20 +64,26 @@ def run_GUI():
 
 def press(button):
     if button == "EXIT":
+        logging.info(f' exit from app: {now}')
+        os.system('rm -r reports')
+        logging.info(f' cleaning report : {now}')
         app.stop()
 
     elif button == "See Report":
         subprocess.Popen(["allure","serve","reports"])
 
-    elif button=="settings":
+    elif button=="Settings":
         app.setLabel("settingsLable", "JOPA")
         app.showSubWindow(button)
 
     elif button=="Clear reports directory":
-        reports_cleaning()
+        os.system('rm -r reports')
+        logging.info(f' cleaning report : {now}')
 
     elif button=="Run selected":
-        reports_cleaning()
+        logging.info(f' test run : {now}')
+        os.system('rm -r reports')
+        logging.info(f' cleaning report : {now}')
         l=app.getAllCheckBoxes()
         markedListOfTests=""
         for i in (l):
@@ -89,7 +98,9 @@ def press(button):
         app.setLabel("test_results", string)
 
     elif button=="Run All":
-        reports_cleaning()
+        logging.info(f' test run : {now}')
+        os.system('rm -r reports')
+        logging.info(f' cleaning report : {now}')
         os.system('pytest --alluredir=reports  > out.txt')
         with open("out.txt") as file:
             for string in file:
