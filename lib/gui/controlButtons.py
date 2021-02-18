@@ -1,11 +1,13 @@
 import os,subprocess
 from .log import log, now
+from .testParser import Parser
+from .scrollPane import ScrollPane
 
 
 class ControlButtons:
     def __init__(self,app):
         self.app=app
-        self.app.addButtons(["Run All", "Run selected", "See Report", "Settings", "EXIT"], self.press)
+        self.app.addButtons(["Run All", "Run selected","Collect tests", "See Report", "Settings", "EXIT"], self.press)
 
     def press(self, button):
         if button == "EXIT":
@@ -13,6 +15,12 @@ class ControlButtons:
             os.system('rm -r reports')
             log.info(f' cleaning report : {now}')
             self.app.stop()
+
+        elif button == "Collect tests":
+            ScrollPane(self.app)
+
+
+
 
         elif button == "See Report":
             subprocess.Popen(["allure", "serve", "reports"])

@@ -4,7 +4,9 @@ from lib.gui.testParser import Parser
 class ScrollPane:
     def __init__(self,app):
         self.app=app
-        self.app.startScrollPane("PANE")
+        try:self.app.removeScrollPane("PANE")
+        except:pass
+        self.app.startScrollPane("PANE",0)
         app.setBg("grey")
         list_tests = Parser()
         for k, i in enumerate(list_tests.collect_tests()):
