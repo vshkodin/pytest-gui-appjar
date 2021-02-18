@@ -1,7 +1,5 @@
-from lib.gui.running import RUN
 from appJar import gui
-from config import GUI,Allure_GUI, now,log
-
+from config import now,log
 
 from .scrollPane import ScrollPane
 from .subWindowSettings import Settings

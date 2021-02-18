@@ -1,8 +1,8 @@
 ## GUI for Pytest based on appJar.
 #### Clone project:
 ```
-git clone https://github.com/vsshk/pytest-gui.git
-cd pytest-gui
+git clone https://github.com/vsshk/pytest-gui-appjar.git
+cd pytest-gui-appjar
 ```
 ### install requirements and Allure
 ```
@@ -12,7 +12,7 @@ $ pip install -r requirements.txt
 * ![](demo-gif.gif)
 # How to run?
 ```
-$ python start.py
+$ python runGui.py
 ```
 * Please give a "star" if it helped you.
 ### All tests exist in verification purposes only.
