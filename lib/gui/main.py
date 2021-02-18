@@ -1,10 +1,10 @@
 from appJar import gui
-from config import now,log
 
 from .scrollPane import ScrollPane
 from .subWindowSettings import Settings
 from .tabbedFrameTestResults import TestResults
 from .controlButtons import ControlButtons
+from .log import log,now
 
 
 class Gui:

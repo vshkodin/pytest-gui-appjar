@@ -1,7 +1,5 @@
 import os,subprocess
-from datetime import datetime
-from config import now,log
-
+from .log import log, now
 
 
 class ControlButtons:
