@@ -20,7 +20,6 @@ class ControlButtons:
             #os.system('rm -r reports')
             ScrollPane(self.app)
 
-
         elif button == "See Report":
             subprocess.Popen(["allure", "serve", "reports"])
 

@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 script.py
+chromedriver
 __pycache__/
 *.py[cod]
 *$py.class
