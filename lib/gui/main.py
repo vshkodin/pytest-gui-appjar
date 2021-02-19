@@ -6,6 +6,7 @@ from .tabbedFrameTestResults import TestResults
 from .controlButtons import ControlButtons
 from .subWindowAssurance import Assurance
 from .log import log,now
+from .subWindowChooseKindofTest import ChooseKindofTest
 
 
 class Gui:
@@ -18,6 +19,7 @@ class Gui:
         ControlButtons(self.app)
         TestResults(self.app)
         Settings(self.app)
+        ChooseKindofTest(self.app)
         #Assurance(self.app)
 
         self.app.go()

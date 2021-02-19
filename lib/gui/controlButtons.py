@@ -2,6 +2,7 @@ import os,subprocess
 from .log import log, now
 from .testParser import Parser
 from .scrollPane import ScrollPane
+from .subWindowChooseKindofTest import ChooseKindofTest
 
 
 class ControlButtons:
@@ -19,6 +20,9 @@ class ControlButtons:
         elif button == "Collect tests":
             #os.system('rm -r reports')
             ScrollPane(self.app)
+
+        elif button == "Create test":
+            self.app.showSubWindow('ChooseKindofTestWindow')
 
         elif button == "See Report":
             subprocess.Popen(["allure", "serve", "reports"])
