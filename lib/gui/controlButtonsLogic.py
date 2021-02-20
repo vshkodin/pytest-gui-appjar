@@ -1,6 +1,10 @@
 import os,subprocess
-from lib.tools.log import log, now
+from lib.tools.log import log
+from lib.tools.cleanReports import clean_report
+from lib.tools.resultsGetter import get_results
+from lib.tools.testRunner import test_runner
 from .scrollPaneView import ScrollPaneView
+
 
 
 class ControlButtonsLogic:
@@ -11,9 +15,8 @@ class ControlButtonsLogic:
 
     def execute(self):
         if self.button == "EXIT":
-            log.info(f' exit from app: {now}')
-            os.system('rm -r reports')
-            log.info(f' cleaning report : {now}')
+            log.info(f'exit from app')
+            clean_report()
             self.app.stop()
 
         elif self.button == "Collect tests":
@@ -29,32 +32,13 @@ class ControlButtonsLogic:
             self.app.showSubWindow(self.button)
 
         elif self.button == "Clear reports directory":
-            os.system('rm -r reports')
-            log.info(f' cleaning report : {now}')
+            clean_report()
 
         elif self.button == "Run selected":
-            log.info(f' test run : {now}')
-            os.system('rm -r reports')
-            log.info(f' cleaning report : {now}')
             l = self.app.getAllCheckBoxes()
-            markedListOfTests = ""
-            for i in (l):
-                if l[i] == True:
-                    markedListOfTests = markedListOfTests + " " + str(i)
-            os.system('pytest --alluredir=reports ' + markedListOfTests + " > out.txt")
-            with open("out.txt") as file:
-                for string in file:
-                    pass
-            os.remove("out.txt")
-            self.app.setLabel("test_results", string)
+            test_runner([i for i in l if l[i]==True])
+            self.app.setLabel("test_results", get_results())
 
         elif self.button == "Run All":
-            log.info(f' test run : {now}')
-            os.system('rm -r reports')
-            log.info(f' cleaning report : {now}')
-            os.system('pytest --alluredir=reports  > out.txt')
-            with open("out.txt") as file:
-                for string in file:
-                    pass
-            os.remove("out.txt")
-            self.app.setLabel("test_results", string)
+            test_runner()
+            self.app.setLabel("test_results", get_results())
