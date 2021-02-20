@@ -1,6 +1,4 @@
-from .configManager import configPytest
-
-class Assurance:
+class AssuranceView:
     def __init__(self,app):
         self.app=app
         self.app.startSubWindow("Assurance", title='Assurance', modal=True)

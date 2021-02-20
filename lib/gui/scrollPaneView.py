@@ -1,7 +1,7 @@
-from lib.gui.testParser import Parser
+from lib.tools.testParser import Parser
 
 
-class ScrollPane:
+class ScrollPaneView:
     def __init__(self,app):
         self.app=app
         try:self.app.removeScrollPane("PANE")

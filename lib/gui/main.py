@@ -1,11 +1,11 @@
 from appJar import gui
 
-from .scrollPane import ScrollPane
-from .subWindowSettings import Settings
-from .tabbedFrameTestResults import TestResults
-from .controlButtons import ControlButtons
-from .log import log,now
-from .subWindowChooseKindofTest import ChooseKindofTest
+from .scrollPaneView import ScrollPaneView
+from .subWindowSettingsView import SettingsView
+from .tabbedFrameTestResultsView import TestResultsView
+from .controlButtonsView import ControlButtonsView
+from lib.tools.log import log,now
+#from .subWindowChooseKindofTestView import ChooseKindofTestView
 
 
 class Gui:
@@ -14,9 +14,9 @@ class Gui:
         log.info(f' app starts att: {now}')
         self.app.setBg("white")
         self.app.setFont(12)
-        ScrollPane(self.app)
-        ControlButtons(self.app)
-        TestResults(self.app)
-        Settings(self.app)
-        ChooseKindofTest(self.app)
+        ScrollPaneView(self.app)
+        ControlButtonsView(self.app)
+        TestResultsView(self.app)
+        SettingsView(self.app)
+        #ChooseKindofTestView(self.app)
         self.app.go()

@@ -1,6 +1,4 @@
-from .configManager import configPytest
-
-class ChooseKindofTest:
+class ChooseKindofTestView:
     def __init__(self,app):
         self.app=app
         self.app.startSubWindow("ChooseKindofTestWindow", title='Choose Kind of Test', modal=True)

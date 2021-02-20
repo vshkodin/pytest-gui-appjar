@@ -1,23 +1,23 @@
-from .configManager import configPytest
+from lib.tools.configManager import configPytest
 
-class Settings:
+class SettingsView:
     def __init__(self,app):
         self.app=app
         self.app.startSubWindow("Settings", title='Settings', modal=True)
-        self.app.addLabel("CurrentTestPath", f" Current testPath : {configPytest.get('pytest','testpaths')}", 0, 0)
-        self.app.addLabel("CurrentAddopts", f" Current addopts : {configPytest.get('pytest','addopts')}", 1, 0)
-        self.app.addLabel("CurrentBaseUrl", f" Current Base Url : {configPytest.get('pytest','baseurl')}", 2, 0)
-        self.app.addLabel("CurrentChromedriverPath", f" Current ChromedriverPath : {configPytest.get('pytest','chromedriverpath')}", 3, 0)
-        self.app.addLabel("testPath", "Tests path", 4, 0)
-        self.app.addButtons(["modify Paths",],self.update, 4, 1)
-        self.app.addLabel("addoptsLabel", "Addopts", 5, 0)
-        self.app.addButtons(["modify Addops", ], self.update, 5, 1)
-        self.app.addLabel("BaseUrlLabel", "Base Url", 6, 0)
-        self.app.addButtons(["modify BaseUrl", ], self.update, 6, 1)
-        self.app.addLabel("ChromedriverPathLabel", "ChromedriverPath", 7, 0)
-        self.app.addButtons(["modify ChromedriverPath", ], self.update, 7, 1)
-        self.app.addButtons(["Close"], self.press, 8, 0, 2)
-        self.app.setSize(400, 400)
+        self.app.addLabel("CurrentTestPath", f"TestPath : {configPytest.get('pytest','testpaths')}", 0, 0)
+        self.app.addLabel("CurrentAddopts", f"Addopts : {configPytest.get('pytest','addopts')}", 1, 0)
+        self.app.addLabel("CurrentBaseUrl", f"BaseUrl : {configPytest.get('pytest','baseurl')}", 2, 0)
+        self.app.addLabel("CurrentChromedriverPath", f"ChromedriverPath : {configPytest.get('pytest','chromedriverpath')}", 3, 0)
+        #self.app.addLabel("testPath", "Tests path", 4, 0)
+        self.app.addButtons(["modify Paths",],self.update, 0, 1)
+        #self.app.addLabel("addoptsLabel", "Addopts", 5, 0)
+        self.app.addButtons(["modify Addops", ], self.update, 1, 1)
+        #self.app.addLabel("BaseUrlLabel", "Base Url", 6, 0)
+        self.app.addButtons(["modify BaseUrl", ], self.update, 2, 1)
+        #self.app.addLabel("ChromedriverPathLabel", "ChromedriverPath", 7, 0)
+        self.app.addButtons(["modify ChromedriverPath", ], self.update, 3, 1)
+        self.app.addButtons(["Close"], self.press, 4, 0, 2)
+        self.app.setSize(350, 150)
         self.app.stopSubWindow()
 
     def update(self,button):
@@ -27,7 +27,7 @@ class Settings:
                 configPytest.set('pytest', 'testpaths', reply)
                 with open('pytest.ini', 'w') as f:
                     configPytest.write(f)
-                self.app.setLabel("CurrentTestPath", f" Current testPath : {configPytest.get('pytest', 'testpaths')}")
+                self.app.setLabel("CurrentTestPath", f"TestPath : {configPytest.get('pytest', 'testpaths')}")
                 self.app.showSubWindow("Settings")
             else:
                 self.app.showSubWindow("Settings")
@@ -37,7 +37,7 @@ class Settings:
                 configPytest.set('pytest', 'addopts', reply)
                 with open('pytest.ini', 'w') as f:
                     configPytest.write(f)
-                self.app.setLabel("CurrentAddopts", f" Current addopts : {configPytest.get('pytest', 'addopts')}")
+                self.app.setLabel("CurrentAddopts", f"Addopts : {configPytest.get('pytest', 'addopts')}")
                 self.app.showSubWindow("Settings")
             else:
                 self.app.showSubWindow("Settings")
@@ -48,7 +48,7 @@ class Settings:
                 configPytest.set('pytest', 'baseurl', reply)
                 with open('pytest.ini', 'w') as f:
                     configPytest.write(f)
-                self.app.setLabel("CurrentBaseUrl", f" Current Base Url : {configPytest.get('pytest','baseurl')}")
+                self.app.setLabel("CurrentBaseUrl", f"BaseUrl : {configPytest.get('pytest','baseurl')}")
                 self.app.showSubWindow("Settings")
             else:
                 self.app.showSubWindow("Settings")
@@ -59,7 +59,7 @@ class Settings:
                 configPytest.set('pytest', 'chromedriverpath', reply)
                 with open('pytest.ini', 'w') as f:
                     configPytest.write(f)
-                self.app.setLabel("CurrentChromedriverPath", f" Current ChromedriverPath : {configPytest.get('pytest', 'chromedriverpath')}")
+                self.app.setLabel("CurrentChromedriverPath", f"ChromedriverPath : {configPytest.get('pytest', 'chromedriverpath')}")
                 self.app.showSubWindow("Settings")
             else:
                 self.app.showSubWindow("Settings")

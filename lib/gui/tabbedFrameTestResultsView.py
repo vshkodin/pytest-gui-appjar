@@ -1,4 +1,4 @@
-class TestResults:
+class TestResultsView:
     def __init__(self,app):
         self.app=app
         self.app.startTabbedFrame("TabbedFrame")

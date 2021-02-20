@@ -1,9 +1,9 @@
 import os,subprocess
-from .log import log, now
-from .scrollPane import ScrollPane
+from lib.tools.log import log, now
+from .scrollPaneView import ScrollPaneView
 
 
-class ControlButtonsClass:
+class ControlButtonsLogic:
     def __init__(self,app,button):
         self.app=app
         self.button=button
@@ -17,7 +17,7 @@ class ControlButtonsClass:
             self.app.stop()
 
         elif self.button == "Collect tests":
-            ScrollPane(self.app)
+            ScrollPaneView(self.app)
 
         elif self.button == "Create test":
             self.app.showSubWindow('ChooseKindofTestWindow')
