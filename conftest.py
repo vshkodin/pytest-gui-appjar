@@ -43,15 +43,16 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
                 #log.info(f'====== Speed  {rep.duration} ======')
 
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
-    try:
-        duration = time.time() - terminalreporter._sessionstarttime
-        log.info(f'====== Speed  {format(duration, ".2g")} ======')
-        print('duration:', duration, 'seconds')
-        print('passed amount:', len(terminalreporter.stats['passed']))
-        print('failed amount:', len(terminalreporter.stats['failed']))
-        #print('xfailed amount:', len(terminalreporter.stats['xfailed']))
-        #print('skipped amount:', len(terminalreporter.stats['skipped']))
-
-
-    except:
-        pass
+    duration = time.time() - terminalreporter._sessionstarttime
+    log.info(f'====== Speed  {format(duration, ".2g")} ======')
+    # try:
+    #
+    #     print('duration:', duration, 'seconds')
+    #     print('passed amount:', len(terminalreporter.stats['passed']))
+    #     print('failed amount:', len(terminalreporter.stats['failed']))
+    #     #print('xfailed amount:', len(terminalreporter.stats['xfailed']))
+    #     #print('skipped amount:', len(terminalreporter.stats['skipped']))
+    #
+    #
+    # except:
+    #     pass
