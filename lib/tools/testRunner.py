@@ -8,8 +8,6 @@ def test_runner(*args, app):
     clean_report()
     log.info(f'test run {args}')
     if len(args)==0:
-        print("I AM IN ONE")
-        print(args)
         pytest.main(['--alluredir=reports'])
     else:
         l=['--alluredir=reports']+args[0]
