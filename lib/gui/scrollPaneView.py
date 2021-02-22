@@ -1,4 +1,4 @@
-from lib.tools.testParser import Parser
+from lib.tools.testCollection import TestCollection
 
 
 class ScrollPaneView:
@@ -8,7 +8,8 @@ class ScrollPaneView:
         except:pass
         self.app.startScrollPane("PANE",0)
         app.setBg("grey")
-        list_tests = Parser()
+        list_tests = TestCollection()
         for k, i in enumerate(list_tests.collect_tests()):
+            if "run status" in i or "there are"in i:continue
             self.app.addNamedCheckBox(i, i)
         self.app.stopScrollPane()

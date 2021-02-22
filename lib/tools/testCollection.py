@@ -1,7 +1,8 @@
-import os,time
+import os
+import time
 
 
-class Parser:
+class TestCollection:
 
     def __init__(self):
         self.list_out=[]
@@ -16,10 +17,3 @@ class Parser:
             self.list_out.remove('')
         os.remove("list_tests.txt")
         return self.list_out
-
-
-
-
-
-
-
