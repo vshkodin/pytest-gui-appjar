@@ -4,7 +4,7 @@
 git clone https://github.com/vsshk/pytest-gui-appjar.git
 cd pytest-gui-appjar
 ```
-* ![](lib/docs/preview.png)
+![](lib/docs/preview.png)
 ### install requirements and Allure
 ```
 $ pip install -r requirements.txt 
