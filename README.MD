@@ -1,5 +1,6 @@
 ## GUI for Pytest based on appJar.
 #### Clone project:
+
 ```
 git clone https://github.com/vsshk/pytest-gui-appjar.git
 cd pytest-gui-appjar
